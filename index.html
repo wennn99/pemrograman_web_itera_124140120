@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mini POS - Aplikasi Kasir & Keranjang Belanja Sederhana oleh Yowen Daniel (124140120)" />
+  <title>Mini POS - Kasir &amp; Keranjang Belanja</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>Mini POS - Kasir &amp; Keranjang Belanja</h1>
+      <p class="identity">Yowen Daniel | 124140120 | PAW RA</p>
+    </div>
+  </header>
+
+  <!-- ===================== KONTEN UTAMA ===================== -->
+  <main class="layout">
+
+    <!-- CARD 1: FORM INPUT BARANG -->
+    <section class="card card-form" aria-labelledby="judul-form">
+      <h2 id="judul-form">Tambah Barang</h2>
+
+      <form id="itemForm" novalidate>
+        <!-- Nama Barang -->
+        <div class="form-group">
+          <label for="itemName">Nama Barang</label>
+          <input type="text" id="itemName" name="itemName" placeholder="misal: Nasi Goreng" autocomplete="off" />
+          <p class="error" id="nameError" aria-live="polite"></p>
+        </div>
+
+        <!-- Harga Satuan -->
+        <div class="form-group">
+          <label for="itemPrice">Harga Satuan (Rp)</label>
+          <input type="text" inputmode="numeric" id="itemPrice" name="itemPrice" placeholder="misal: 5000" autocomplete="off" />
+          <p class="error" id="priceError" aria-live="polite"></p>
+        </div>
+
+        <!-- Qty -->
+        <div class="form-group">
+          <label for="itemQty">Qty</label>
+          <input type="text" inputmode="numeric" id="itemQty" name="itemQty" placeholder="misal: 2" autocomplete="off" />
+          <p class="error" id="qtyError" aria-live="polite"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Tambah ke Keranjang</button>
+      </form>
+    </section>
+
+    <!-- CARD 2: KERANJANG BELANJA -->
+    <section class="card card-cart" aria-labelledby="judul-keranjang">
+      <h2 id="judul-keranjang">Keranjang Belanja</h2>
+
+      <div class="table-wrap">
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Nama Barang</th>
+              <th scope="col">Harga Satuan</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Subtotal</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="cartBody">
+            <!-- Baris diisi oleh JavaScript (renderCart) -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CARD 3: RINGKASAN & PEMBAYARAN -->
+    <section class="card card-summary" aria-labelledby="judul-ringkasan">
+      <h2 id="judul-ringkasan">Ringkasan Transaksi</h2>
+
+      <div class="summary-row">
+        <span>Total Belanja</span>
+        <strong id="totalBelanja">Rp0</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Diskon</span>
+        <strong id="diskonTotal">Rp0</strong>
+      </div>
+
+      <p class="info-note">Diskon 10% berlaku untuk total belanja minimal Rp50.000.</p>
+
+      <!-- Total akhir dibuat lebih menonjol -->
+      <div class="summary-row summary-total">
+        <span>Total Akhir</span>
+        <strong id="totalAkhir">Rp0</strong>
+      </div>
+
+      <div class="form-group">
+        <label for="uangBayar">Uang Bayar</label>
+        <input type="text" inputmode="numeric" id="uangBayar" name="uangBayar" placeholder="misal: 50000" autocomplete="off" />
+      </div>
+
+      <div class="summary-row">
+        <span>Kembalian</span>
+        <strong id="kembalian">Rp0</strong>
+      </div>
+
+      <p class="payment-note" id="paymentNote" role="status">Belum ada barang di keranjang.</p>
+
+      <button type="button" class="btn btn-danger btn-block" id="newTransactionBtn">Transaksi Baru</button>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <p>Mini POS &copy; 2026 &mdash; Yowen Daniel | 124140120 | PAW RA</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
