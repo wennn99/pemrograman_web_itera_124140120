@@ -129,16 +129,3 @@ Fungsi utama yang digunakan: `saveCart()`, `loadCart()`, `renderCart()`, `valida
 ### 3. Tampilan Keranjang dan Kalkulator
 
 ![Keranjang](screenshot-keranjang.png)
-
-## Upload ke GitHub
-
-Repository: **pemrograman_web_itera_124140120**
-
-```bash
-git init
-git add .
-git commit -m "Mini POS - Aplikasi Kasir & Keranjang Belanja (Yowen Daniel 124140120)"
-git branch -M main
-git remote add origin https://github.com/wennn99/pemrograman_web_itera_124140120.git
-git push -u origin main
-```
