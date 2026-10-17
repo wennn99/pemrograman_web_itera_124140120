@@ -283,14 +283,3 @@ Pengujian dijalankan otomatis memakai Chrome *headless* (termasuk simulasi lebar
 | Fetch cuaca Open-Meteo | ✅ data nyata (mis. 26 °C, cerah) + prakiraan 7 hari |
 | Fetch kutipan DummyJSON | ✅ kutipan + penulis tampil |
 | Tampilan HP 390px | ✅ `scrollWidth` = `clientWidth` = 390px (tidak ada *scroll* horizontal) |
-
----
-
-## Catatan Teknis
-
-- **Tanpa framework dan tanpa build step** agar mudah diperiksa dosen: cukup tiga file (`index.html`, `style.css`, `script.js`).
-- **Sengaja tidak memakai ES Module** (`import`/`export`) supaya aplikasi tetap jalan saat dibuka langsung dari `file://` (klik dua kali), tidak hanya lewat Live Server.
-- **Zona waktu** dihitung dengan `Intl.DateTimeFormat` bertema `Asia/Jakarta`, jadi jam, tanggal, countdown, dan penanda "hari ini" tetap benar meskipun jam perangkat pengguna bukan WIB.
-- **Latitude/longitude Kampus ITERA** (−5.36, 105.31) disimpan di `CONFIG.campus` sehingga bisa diganti ke lokasi lain dengan satu baris perubahan.
-- Ikon memakai *emoji* dan simbol Unicode sederhana agar tidak perlu aset gambar tambahan.
-- **Tema warna terpusat** di `style.css` bagian 1: seluruh warna berasal dari CSS variables (`--primary`, `--secondary`, `--accent`, `--bg`, dst.), sehingga ganti tema cukup mengubah satu blok. Variabel `--day-color` / `--day-rgb` mengatur warna tiap hari pada grid jadwal.
