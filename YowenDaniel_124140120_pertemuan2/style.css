@@ -1,42 +1,42 @@
 /* =========================================================
    KelasKu — Jadwal Kuliah & Cuaca Kampus ITERA
-   style.css — tema "Violet Sunset"
-   Palet: ungu (violet) → merah muda (pink) → biru muda (cyan)
+   style.css — tema "Ocean"
+   Palet: biru (sky) → teal → hijau mint
    ========================================================= */
 
 /* ---------- 1. Variabel desain ---------- */
 :root {
   /* Latar */
-  --bg: #070518;
-  --bg-soft: #120c2e;
-  --card: rgba(30, 22, 64, 0.72);
-  --card-solid: #1c1440;
-  --border: rgba(160, 140, 255, 0.16);
-  --border-strong: rgba(160, 140, 255, 0.34);
-  --surface: rgba(12, 7, 35, 0.55);
+  --bg: #04121c;
+  --bg-soft: #072a38;
+  --card: rgba(10, 40, 56, 0.72);
+  --card-solid: #0a2838;
+  --border: rgba(125, 200, 225, 0.18);
+  --border-strong: rgba(125, 200, 225, 0.36);
+  --surface: rgba(3, 20, 30, 0.55);
 
   /* Teks */
-  --text: #f2edff;
-  --text-soft: #c2b6e8;
-  --text-dim: #8f83bd;
+  --text: #eafaff;
+  --text-soft: #b6dbe8;
+  --text-dim: #7ea7b8;
 
   /* Warna aksen */
-  --primary: #8b5cf6;
-  --primary-dark: #7c3aed;
-  --secondary: #ec4899;
-  --accent: #22d3ee;
+  --primary: #38bdf8;
+  --primary-dark: #0284c7;
+  --secondary: #14b8a6;
+  --accent: #6ee7b7;
   --warning: #fbbf24;
   --danger: #fb7185;
-  --success: #34d399;
+  --success: #22c55e;
 
   --radius-sm: 10px;
   --radius: 16px;
   --radius-lg: 22px;
 
-  --shadow: 0 20px 45px -24px rgba(3, 0, 18, 0.95);
-  --shadow-soft: 0 10px 24px -18px rgba(3, 0, 18, 0.9);
-  --glow-violet: 0 18px 40px -20px rgba(139, 92, 246, 0.85);
-  --glow-pink: 0 16px 34px -18px rgba(236, 72, 153, 0.8);
+  --shadow: 0 20px 45px -24px rgba(0, 14, 20, 0.95);
+  --shadow-soft: 0 10px 24px -18px rgba(0, 14, 20, 0.9);
+  --glow-primary: 0 18px 40px -20px rgba(56, 189, 248, 0.85);
+  --glow-secondary: 0 16px 34px -18px rgba(20, 184, 166, 0.85);
 
   --font: "Segoe UI", "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --mono: "Cascadia Mono", "JetBrains Mono", "Consolas", ui-monospace, monospace;
@@ -61,9 +61,9 @@ body {
   color: var(--text);
   background-color: var(--bg);
   background-image:
-    radial-gradient(900px 520px at 8% -10%, rgba(139, 92, 246, 0.40), transparent 60%),
-    radial-gradient(820px 480px at 96% 0%, rgba(236, 72, 153, 0.26), transparent 58%),
-    radial-gradient(760px 540px at 62% 112%, rgba(34, 211, 238, 0.18), transparent 62%);
+    radial-gradient(900px 520px at 8% -10%, rgba(56, 189, 248, 0.34), transparent 60%),
+    radial-gradient(820px 480px at 96% 0%, rgba(20, 184, 166, 0.28), transparent 58%),
+    radial-gradient(760px 540px at 62% 112%, rgba(110, 231, 183, 0.16), transparent 62%);
   background-attachment: fixed;
   line-height: 1.55;
 }
@@ -103,8 +103,8 @@ a:hover {
 }
 
 ::selection {
-  color: #fff;
-  background: rgba(236, 72, 153, 0.45);
+  color: #04222c;
+  background: rgba(110, 231, 183, 0.6);
 }
 
 ::-webkit-scrollbar {
@@ -113,11 +113,11 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b0722;
+  background: #061a25;
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 3px solid #0b0722;
+  border: 3px solid #061a25;
   border-radius: 999px;
   background: linear-gradient(180deg, var(--primary), var(--secondary));
 }
@@ -168,7 +168,7 @@ a:hover {
   font-size: 1.6rem;
   border-radius: var(--radius);
   background: linear-gradient(140deg, var(--primary), var(--secondary) 55%, var(--accent));
-  box-shadow: 0 14px 30px -12px rgba(236, 72, 153, 0.9);
+  box-shadow: 0 14px 30px -12px rgba(20, 184, 166, 0.9);
 }
 
 .brand-text p {
@@ -190,7 +190,7 @@ a:hover {
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
   border-radius: var(--radius-sm);
-  background: linear-gradient(120deg, rgba(34, 211, 238, 0.1), rgba(30, 22, 64, 0.55));
+  background: linear-gradient(120deg, rgba(110, 231, 183, 0.12), rgba(10, 40, 56, 0.55));
 }
 
 .quote blockquote {
@@ -264,7 +264,7 @@ a:hover {
   inset: 0 18px auto;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.55), transparent);
+  background: linear-gradient(90deg, transparent, rgba(110, 231, 183, 0.55), transparent);
 }
 
 .card-head {
@@ -282,37 +282,37 @@ a:hover {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   border-radius: 999px;
-  color: #efe7ff;
-  background: rgba(139, 92, 246, 0.28);
-  border: 1px solid rgba(167, 139, 250, 0.45);
+  color: #e3f8ff;
+  background: rgba(56, 189, 248, 0.24);
+  border: 1px solid rgba(56, 189, 248, 0.45);
   white-space: nowrap;
 }
 
 .pill-soft {
-  background: rgba(34, 211, 238, 0.1);
-  color: #9fe9f6;
-  border-color: rgba(34, 211, 238, 0.28);
+  background: rgba(110, 231, 183, 0.12);
+  color: #a7f3d5;
+  border-color: rgba(110, 231, 183, 0.32);
   text-transform: none;
   font-weight: 600;
 }
 
 /* ---------- 5. Kartu kelas berikutnya ---------- */
 .card-hero {
-  border-color: rgba(167, 139, 250, 0.45);
+  border-color: rgba(56, 189, 248, 0.45);
   background:
-    linear-gradient(150deg, rgba(139, 92, 246, 0.42), rgba(236, 72, 153, 0.24) 54%, rgba(34, 211, 238, 0.18)),
+    linear-gradient(150deg, rgba(56, 189, 248, 0.38), rgba(20, 184, 166, 0.26) 54%, rgba(110, 231, 183, 0.20)),
     var(--card-solid);
-  box-shadow: var(--glow-violet);
+  box-shadow: var(--glow-primary);
 }
 
 .card-hero::after {
-  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(110, 231, 183, 0.85), transparent);
 }
 
 .next-body h3 {
   font-size: 1.3rem;
   margin-bottom: 6px;
-  text-shadow: 0 4px 18px rgba(7, 5, 24, 0.6);
+  text-shadow: 0 4px 18px rgba(4, 18, 28, 0.7);
 }
 
 .next-row {
@@ -339,9 +339,9 @@ a:hover {
 .countdown-unit {
   padding: 10px 6px;
   text-align: center;
-  border: 1px solid rgba(167, 139, 250, 0.32);
+  border: 1px solid rgba(56, 189, 248, 0.34);
   border-radius: var(--radius-sm);
-  background: rgba(9, 5, 28, 0.62);
+  background: rgba(3, 20, 30, 0.62);
 }
 
 .countdown-unit span {
@@ -349,7 +349,7 @@ a:hover {
   font-family: var(--mono);
   font-size: 1.35rem;
   font-weight: 700;
-  background: linear-gradient(120deg, #7dd3fc, #c4b5fd 60%, #f9a8d4);
+  background: linear-gradient(120deg, #7dd3fc, #5eead4 60%, #6ee7b7);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -363,15 +363,15 @@ a:hover {
 }
 
 .status-live {
-  color: #062e26;
-  background: linear-gradient(120deg, var(--success), #7ff0c9);
+  color: #04241a;
+  background: linear-gradient(120deg, var(--success), #86efac);
   border-color: transparent;
 }
 
 /* ---------- 6. Kartu cuaca ---------- */
 .card-weather {
   background:
-    linear-gradient(165deg, rgba(56, 189, 248, 0.14), rgba(30, 22, 64, 0.82) 58%),
+    linear-gradient(165deg, rgba(56, 189, 248, 0.16), rgba(10, 40, 56, 0.82) 58%),
     var(--card);
 }
 
@@ -384,14 +384,14 @@ a:hover {
 .weather-icon {
   font-size: 2.6rem;
   line-height: 1;
-  filter: drop-shadow(0 8px 16px rgba(251, 191, 36, 0.35));
+  filter: drop-shadow(0 8px 16px rgba(56, 189, 248, 0.4));
 }
 
 .weather-temp {
   font-size: 2.1rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: linear-gradient(100deg, #fde68a, #fdba74 60%, #f9a8d4);
+  background: linear-gradient(100deg, #bae6fd, #5eead4 58%, #6ee7b7);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -416,9 +416,9 @@ a:hover {
   padding: 9px 13px;
   font-size: 0.82rem;
   border-radius: var(--radius-sm);
-  border: 1px dashed rgba(52, 211, 153, 0.5);
-  background: rgba(52, 211, 153, 0.1);
-  color: #b8f5df;
+  border: 1px dashed rgba(110, 231, 183, 0.5);
+  background: rgba(110, 231, 183, 0.1);
+  color: #bdf3de;
 }
 
 .weather-advice.is-alert {
@@ -455,7 +455,7 @@ a:hover {
 
 .forecast li:hover {
   transform: translateY(-2px);
-  border-color: rgba(34, 211, 238, 0.55);
+  border-color: rgba(110, 231, 183, 0.55);
 }
 
 .forecast .fc-day {
@@ -504,14 +504,14 @@ a:hover {
   font-size: 0.85rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: linear-gradient(100deg, rgba(139, 92, 246, 0.14), var(--surface) 70%);
+  background: linear-gradient(100deg, rgba(56, 189, 248, 0.14), var(--surface) 70%);
   color: var(--text-soft);
 }
 
 .stats b {
   font-family: var(--mono);
   font-size: 1rem;
-  background: linear-gradient(100deg, #c4b5fd, #f9a8d4 55%, #7dd3fc);
+  background: linear-gradient(100deg, #93c5fd, #5eead4 55%, #a7f3d0);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -533,7 +533,7 @@ a:hover {
 .progress-bar {
   height: 9px;
   border-radius: 999px;
-  background: rgba(9, 5, 28, 0.7);
+  background: rgba(3, 20, 30, 0.7);
   border: 1px solid var(--border);
   overflow: hidden;
 }
@@ -543,7 +543,7 @@ a:hover {
   height: 100%;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--primary), var(--secondary) 52%, var(--accent));
-  box-shadow: 0 0 14px rgba(236, 72, 153, 0.7);
+  box-shadow: 0 0 14px rgba(20, 184, 166, 0.7);
   transition: width 0.5s ease;
 }
 
@@ -610,20 +610,20 @@ select {
   color: var(--text);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
-  background: rgba(9, 5, 28, 0.62);
+  background: rgba(3, 20, 30, 0.62);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 input::placeholder {
-  color: #6f639c;
+  color: #6d92a3;
 }
 
 input:focus,
 select:focus {
   outline: none;
   border-color: var(--primary);
-  background: rgba(14, 9, 40, 0.8);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.24);
+  background: rgba(5, 32, 44, 0.8);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.24);
 }
 
 select option {
@@ -669,21 +669,21 @@ input[aria-invalid="true"] {
 }
 
 .btn-primary {
-  color: #fff;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  box-shadow: var(--glow-pink);
+  color: #04222c;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  box-shadow: var(--glow-secondary);
 }
 
 .btn-ghost {
   color: var(--text-soft);
   border-color: var(--border-strong);
-  background: rgba(9, 5, 28, 0.5);
+  background: rgba(3, 20, 30, 0.5);
 }
 
 .btn-ghost:hover {
   color: var(--text);
   border-color: var(--primary);
-  background: rgba(139, 92, 246, 0.18);
+  background: rgba(56, 189, 248, 0.18);
 }
 
 .btn-danger {
@@ -698,7 +698,7 @@ input[aria-invalid="true"] {
   color: var(--text-soft);
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(9, 5, 28, 0.45);
+  background: rgba(3, 20, 30, 0.45);
   cursor: pointer;
   transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
@@ -706,7 +706,7 @@ input[aria-invalid="true"] {
 .btn-icon:hover {
   color: #fff;
   border-color: var(--primary);
-  background: rgba(139, 92, 246, 0.28);
+  background: rgba(56, 189, 248, 0.28);
 }
 
 /* ---------- 9. Jadwal mingguan ---------- */
@@ -743,7 +743,7 @@ input[aria-invalid="true"] {
   color: var(--text-dim);
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(9, 5, 28, 0.45);
+  background: rgba(3, 20, 30, 0.45);
   cursor: pointer;
   transition: all 0.18s ease;
 }
@@ -751,14 +751,14 @@ input[aria-invalid="true"] {
 .day-filter button:hover {
   color: var(--text);
   border-color: var(--border-strong);
-  background: rgba(139, 92, 246, 0.16);
+  background: rgba(56, 189, 248, 0.16);
 }
 
 .day-filter button[aria-pressed="true"] {
-  color: #fff;
+  color: #04222c;
   border-color: transparent;
   background: linear-gradient(135deg, var(--primary), var(--accent));
-  box-shadow: var(--glow-violet);
+  box-shadow: var(--glow-primary);
 }
 
 .schedule-grid {
@@ -768,30 +768,30 @@ input[aria-invalid="true"] {
   align-items: start;
 }
 
-/* Kode warna per hari: bagian ini membuat grid mingguan lebih mudah dibaca. */
+/* Kode warna per hari: gradasi biru → teal → mint sepanjang minggu. */
 .day-column {
   --day-color: var(--primary);
-  --day-rgb: 139, 92, 246;
+  --day-rgb: 56, 189, 248;
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: rgba(9, 5, 28, 0.42);
+  background: rgba(3, 20, 30, 0.42);
 }
 
 .day--senin { --day-color: #60a5fa; --day-rgb: 96, 165, 250; }
-.day--selasa { --day-color: #34d399; --day-rgb: 52, 211, 153; }
-.day--rabu { --day-color: #a78bfa; --day-rgb: 167, 139, 250; }
-.day--kamis { --day-color: #f472b6; --day-rgb: 244, 114, 182; }
-.day--jumat { --day-color: #fbbf24; --day-rgb: 251, 191, 36; }
-.day--sabtu { --day-color: #22d3ee; --day-rgb: 34, 211, 238; }
+.day--selasa { --day-color: #38bdf8; --day-rgb: 56, 189, 248; }
+.day--rabu { --day-color: #22d3ee; --day-rgb: 34, 211, 238; }
+.day--kamis { --day-color: #2dd4bf; --day-rgb: 45, 212, 191; }
+.day--jumat { --day-color: #34d399; --day-rgb: 52, 211, 153; }
+.day--sabtu { --day-color: #6ee7b7; --day-rgb: 110, 231, 183; }
 
 .day-column.is-today {
   border-color: var(--day-color);
-  background: rgba(9, 5, 28, 0.42);
-  background: linear-gradient(180deg, rgba(var(--day-rgb), 0.18), rgba(9, 5, 28, 0.42) 62%);
+  background: rgba(3, 20, 30, 0.42);
+  background: linear-gradient(180deg, rgba(var(--day-rgb), 0.18), rgba(3, 20, 30, 0.42) 62%);
   box-shadow: 0 0 0 1px rgba(var(--day-rgb), 0.55), var(--shadow-soft);
 }
 
@@ -852,7 +852,7 @@ input[aria-invalid="true"] {
 }
 
 .course-card.is-attended {
-  background: linear-gradient(120deg, rgba(52, 211, 153, 0.14), var(--card-solid) 72%);
+  background: linear-gradient(120deg, rgba(110, 231, 183, 0.16), var(--card-solid) 72%);
 }
 
 .course-card.is-next {
@@ -875,8 +875,8 @@ input[aria-invalid="true"] {
   font-family: var(--mono);
   font-size: 0.68rem;
   border-radius: 999px;
-  color: #e4dbff;
-  background: rgba(139, 92, 246, 0.3);
+  color: #dcf6ff;
+  background: rgba(56, 189, 248, 0.26);
   white-space: nowrap;
 }
 
@@ -941,7 +941,7 @@ input[aria-invalid="true"] {
   color: var(--text-dim);
   border: 1px dashed var(--border-strong);
   border-radius: var(--radius);
-  background: rgba(9, 5, 28, 0.35);
+  background: rgba(3, 20, 30, 0.35);
 }
 
 /* ---------- 10. Toast & footer ---------- */
@@ -954,11 +954,11 @@ input[aria-invalid="true"] {
   padding: 13px 18px;
   font-size: 0.85rem;
   font-weight: 600;
-  border: 1px solid rgba(167, 139, 250, 0.4);
+  border: 1px solid rgba(56, 189, 248, 0.4);
   border-left: 4px solid var(--primary);
   border-radius: var(--radius-sm);
-  background: #191046;
-  box-shadow: var(--glow-violet);
+  background: #062634;
+  box-shadow: var(--glow-primary);
   animation: toast-in 0.28s ease;
 }
 

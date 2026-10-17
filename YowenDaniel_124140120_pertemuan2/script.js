@@ -951,7 +951,7 @@ class DashboardApp {
       this.renderNextAgenda();
     }, 1000);
 
-    console.info('%cKelasKu siap ✅', 'color:#35d6c8;font-weight:bold');
+    console.info('%cKelasKu siap ✅', 'color:#6ee7b7;font-weight:bold');
     console.info(`Total agenda tersimpan: ${this.courses.length}`);
   }
 }

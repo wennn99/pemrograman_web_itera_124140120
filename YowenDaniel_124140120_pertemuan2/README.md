@@ -257,7 +257,7 @@ Semua teks dari pengguna disanitasi dengan `escapeHtml()` (`script.js:76`) sebel
 | Fungsionalitas & interaktivitas aplikasi | 30% | CRUD lengkap (tambah/edit/hapus/tandai hadir), filter hari, pencarian, countdown *live*, deteksi bentrok, widget cuaca, kutipan, toast, ringkasan statistik |
 | Implementasi fitur ES6+ | 25% | 28 poin ES6+ pada tabel di atas: class + inheritance, getter/static, private field, destructuring, rest/spread, template literal, `Map`, `?.`/`??`, `async/await`, `Promise.allSettled`, `Intl`, dsb. |
 | Penggunaan localStorage & pengelolaan data | 20% | Dua key (`kelasKu.schedule.v1`, `kelasKu.meta.v1`), `JSON.stringify/parse`, *factory* `fromJSON()` untuk memulihkan tipe kelas, cache API ber-TTL, fallback offline |
-| Desain UI dan UX | 15% | Tema **"Violet Sunset"** (ungu → pink → cyan) berbasis CSS variables, kode warna per hari, kartu informatif, kolom "hari ini" menyala, countdown besar bergradasi, ikon cuaca, toast notifikasi, responsif sampai 390px, `prefers-reduced-motion` |
+| Desain UI dan UX | 15% | Tema **"Ocean"** (biru → teal → hijau mint) berbasis CSS variables, kode warna per hari, kartu informatif, kolom "hari ini" menyala, countdown besar bergradasi, ikon cuaca, toast notifikasi, responsif sampai 390px, `prefers-reduced-motion` |
 | Dokumentasi dan kerapian kode | 10% | README ini + `modul/README.md`, kode berkomentar & terbagi 5 bagian bernomor, penamaan konsisten, HTML/CSS/JS terpisah |
 
 ---
