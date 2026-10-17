@@ -1,34 +1,42 @@
 /* =========================================================
    KelasKu — Jadwal Kuliah & Cuaca Kampus ITERA
-   style.css
+   style.css — tema "Violet Sunset"
+   Palet: ungu (violet) → merah muda (pink) → biru muda (cyan)
    ========================================================= */
 
 /* ---------- 1. Variabel desain ---------- */
 :root {
-  --bg: #0a0f1e;
-  --bg-soft: #111a2f;
-  --card: rgba(23, 33, 56, 0.86);
-  --card-solid: #172138;
-  --border: rgba(120, 148, 210, 0.18);
-  --border-strong: rgba(120, 148, 210, 0.38);
+  /* Latar */
+  --bg: #070518;
+  --bg-soft: #120c2e;
+  --card: rgba(30, 22, 64, 0.72);
+  --card-solid: #1c1440;
+  --border: rgba(160, 140, 255, 0.16);
+  --border-strong: rgba(160, 140, 255, 0.34);
+  --surface: rgba(12, 7, 35, 0.55);
 
-  --text: #eaf0ff;
-  --text-soft: #a9b6d4;
-  --text-dim: #7285a8;
+  /* Teks */
+  --text: #f2edff;
+  --text-soft: #c2b6e8;
+  --text-dim: #8f83bd;
 
-  --primary: #6d8bff;
-  --primary-dark: #4a67e8;
-  --accent: #35d6c8;
-  --warning: #ffb347;
-  --danger: #ff6b81;
-  --success: #4ade80;
+  /* Warna aksen */
+  --primary: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --secondary: #ec4899;
+  --accent: #22d3ee;
+  --warning: #fbbf24;
+  --danger: #fb7185;
+  --success: #34d399;
 
   --radius-sm: 10px;
   --radius: 16px;
   --radius-lg: 22px;
 
-  --shadow: 0 18px 40px -22px rgba(3, 8, 20, 0.9);
-  --shadow-soft: 0 10px 24px -18px rgba(3, 8, 20, 0.9);
+  --shadow: 0 20px 45px -24px rgba(3, 0, 18, 0.95);
+  --shadow-soft: 0 10px 24px -18px rgba(3, 0, 18, 0.9);
+  --glow-violet: 0 18px 40px -20px rgba(139, 92, 246, 0.85);
+  --glow-pink: 0 16px 34px -18px rgba(236, 72, 153, 0.8);
 
   --font: "Segoe UI", "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --mono: "Cascadia Mono", "JetBrains Mono", "Consolas", ui-monospace, monospace;
@@ -53,8 +61,9 @@ body {
   color: var(--text);
   background-color: var(--bg);
   background-image:
-    radial-gradient(900px 480px at 12% -8%, rgba(109, 139, 255, 0.22), transparent 62%),
-    radial-gradient(760px 420px at 92% 4%, rgba(53, 214, 200, 0.16), transparent 60%);
+    radial-gradient(900px 520px at 8% -10%, rgba(139, 92, 246, 0.40), transparent 60%),
+    radial-gradient(820px 480px at 96% 0%, rgba(236, 72, 153, 0.26), transparent 58%),
+    radial-gradient(760px 540px at 62% 112%, rgba(34, 211, 238, 0.18), transparent 62%);
   background-attachment: fixed;
   line-height: 1.55;
 }
@@ -91,6 +100,26 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+::selection {
+  color: #fff;
+  background: rgba(236, 72, 153, 0.45);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0722;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid #0b0722;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
 }
 
 :focus-visible {
@@ -138,8 +167,8 @@ a:hover {
   height: 52px;
   font-size: 1.6rem;
   border-radius: var(--radius);
-  background: linear-gradient(140deg, var(--primary), var(--accent));
-  box-shadow: 0 12px 26px -14px rgba(109, 139, 255, 0.95);
+  background: linear-gradient(140deg, var(--primary), var(--secondary) 55%, var(--accent));
+  box-shadow: 0 14px 30px -12px rgba(236, 72, 153, 0.9);
 }
 
 .brand-text p {
@@ -161,7 +190,7 @@ a:hover {
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
   border-radius: var(--radius-sm);
-  background: rgba(17, 26, 47, 0.7);
+  background: linear-gradient(120deg, rgba(34, 211, 238, 0.1), rgba(30, 22, 64, 0.55));
 }
 
 .quote blockquote {
@@ -192,7 +221,10 @@ a:hover {
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--accent);
+  background: linear-gradient(100deg, var(--accent), var(--primary) 55%, var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .clock-date {
@@ -225,6 +257,16 @@ a:hover {
   backdrop-filter: blur(8px);
 }
 
+/* garis aksen tipis di bagian atas setiap kartu */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0 18px auto;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.55), transparent);
+}
+
 .card-head {
   display: flex;
   gap: 12px;
@@ -240,31 +282,37 @@ a:hover {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   border-radius: 999px;
-  background: rgba(109, 139, 255, 0.18);
-  color: #c3d0ff;
-  border: 1px solid rgba(109, 139, 255, 0.35);
+  color: #efe7ff;
+  background: rgba(139, 92, 246, 0.28);
+  border: 1px solid rgba(167, 139, 250, 0.45);
   white-space: nowrap;
 }
 
 .pill-soft {
-  background: rgba(148, 168, 210, 0.1);
-  color: var(--text-dim);
-  border-color: var(--border);
+  background: rgba(34, 211, 238, 0.1);
+  color: #9fe9f6;
+  border-color: rgba(34, 211, 238, 0.28);
   text-transform: none;
   font-weight: 600;
 }
 
 /* ---------- 5. Kartu kelas berikutnya ---------- */
 .card-hero {
-  border-color: rgba(109, 139, 255, 0.42);
+  border-color: rgba(167, 139, 250, 0.45);
   background:
-    linear-gradient(150deg, rgba(74, 103, 232, 0.28), rgba(53, 214, 200, 0.1)),
+    linear-gradient(150deg, rgba(139, 92, 246, 0.42), rgba(236, 72, 153, 0.24) 54%, rgba(34, 211, 238, 0.18)),
     var(--card-solid);
+  box-shadow: var(--glow-violet);
+}
+
+.card-hero::after {
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.8), transparent);
 }
 
 .next-body h3 {
   font-size: 1.3rem;
   margin-bottom: 6px;
+  text-shadow: 0 4px 18px rgba(7, 5, 24, 0.6);
 }
 
 .next-row {
@@ -277,7 +325,7 @@ a:hover {
 }
 
 .next-row b {
-  color: var(--text);
+  color: #fff;
   font-weight: 600;
 }
 
@@ -291,9 +339,9 @@ a:hover {
 .countdown-unit {
   padding: 10px 6px;
   text-align: center;
-  border: 1px solid var(--border-strong);
+  border: 1px solid rgba(167, 139, 250, 0.32);
   border-radius: var(--radius-sm);
-  background: rgba(6, 12, 26, 0.5);
+  background: rgba(9, 5, 28, 0.62);
 }
 
 .countdown-unit span {
@@ -301,7 +349,10 @@ a:hover {
   font-family: var(--mono);
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--accent);
+  background: linear-gradient(120deg, #7dd3fc, #c4b5fd 60%, #f9a8d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .countdown-unit small {
@@ -312,10 +363,18 @@ a:hover {
 }
 
 .status-live {
-  color: var(--success);
+  color: #062e26;
+  background: linear-gradient(120deg, var(--success), #7ff0c9);
+  border-color: transparent;
 }
 
 /* ---------- 6. Kartu cuaca ---------- */
+.card-weather {
+  background:
+    linear-gradient(165deg, rgba(56, 189, 248, 0.14), rgba(30, 22, 64, 0.82) 58%),
+    var(--card);
+}
+
 .weather-now {
   display: flex;
   gap: 16px;
@@ -325,12 +384,17 @@ a:hover {
 .weather-icon {
   font-size: 2.6rem;
   line-height: 1;
+  filter: drop-shadow(0 8px 16px rgba(251, 191, 36, 0.35));
 }
 
 .weather-temp {
   font-size: 2.1rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  background: linear-gradient(100deg, #fde68a, #fdba74 60%, #f9a8d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .weather-desc {
@@ -352,15 +416,15 @@ a:hover {
   padding: 9px 13px;
   font-size: 0.82rem;
   border-radius: var(--radius-sm);
-  border: 1px dashed var(--border-strong);
-  background: rgba(53, 214, 200, 0.08);
-  color: #bff5ee;
+  border: 1px dashed rgba(52, 211, 153, 0.5);
+  background: rgba(52, 211, 153, 0.1);
+  color: #b8f5df;
 }
 
 .weather-advice.is-alert {
-  background: rgba(255, 179, 71, 0.12);
-  border-color: rgba(255, 179, 71, 0.5);
-  color: #ffdca8;
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.55);
+  color: #ffe2ab;
 }
 
 .forecast-title {
@@ -385,7 +449,13 @@ a:hover {
   text-align: center;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: rgba(6, 12, 26, 0.35);
+  background: var(--surface);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.forecast li:hover {
+  transform: translateY(-2px);
+  border-color: rgba(34, 211, 238, 0.55);
 }
 
 .forecast .fc-day {
@@ -409,15 +479,15 @@ a:hover {
 .forecast .fc-rain {
   display: block;
   font-size: 0.66rem;
-  color: var(--primary);
+  color: var(--accent);
 }
 
+/* ---------- 7. Ringkasan ---------- */
 .card-stats {
   display: flex;
   flex-direction: column;
 }
 
-/* ---------- 7. Ringkasan ---------- */
 .stats {
   display: grid;
   gap: 10px;
@@ -434,14 +504,17 @@ a:hover {
   font-size: 0.85rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: rgba(6, 12, 26, 0.35);
+  background: linear-gradient(100deg, rgba(139, 92, 246, 0.14), var(--surface) 70%);
   color: var(--text-soft);
 }
 
 .stats b {
   font-family: var(--mono);
   font-size: 1rem;
-  color: var(--text);
+  background: linear-gradient(100deg, #c4b5fd, #f9a8d4 55%, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .progress-wrap {
@@ -460,7 +533,7 @@ a:hover {
 .progress-bar {
   height: 9px;
   border-radius: 999px;
-  background: rgba(6, 12, 26, 0.6);
+  background: rgba(9, 5, 28, 0.7);
   border: 1px solid var(--border);
   overflow: hidden;
 }
@@ -469,7 +542,8 @@ a:hover {
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background: linear-gradient(90deg, var(--primary), var(--secondary) 52%, var(--accent));
+  box-shadow: 0 0 14px rgba(236, 72, 153, 0.7);
   transition: width 0.5s ease;
 }
 
@@ -499,9 +573,9 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 12px;
   padding: 14px 16px 16px;
-  border: 1px dashed var(--border-strong);
+  border: 1px dashed rgba(251, 191, 36, 0.45);
   border-radius: var(--radius-sm);
-  background: rgba(109, 139, 255, 0.06);
+  background: rgba(251, 191, 36, 0.07);
 }
 
 .field-material legend {
@@ -510,7 +584,7 @@ a:hover {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--primary);
+  color: var(--warning);
 }
 
 .field-material label {
@@ -536,19 +610,20 @@ select {
   color: var(--text);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
-  background: rgba(6, 12, 26, 0.62);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(9, 5, 28, 0.62);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 input::placeholder {
-  color: #5c6c8c;
+  color: #6f639c;
 }
 
 input:focus,
 select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(109, 139, 255, 0.2);
+  background: rgba(14, 9, 40, 0.8);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.24);
 }
 
 select option {
@@ -558,7 +633,7 @@ select option {
 
 input[aria-invalid="true"] {
   border-color: var(--danger);
-  box-shadow: 0 0 0 3px rgba(255, 107, 129, 0.16);
+  box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.2);
 }
 
 .error {
@@ -581,11 +656,12 @@ input[aria-invalid="true"] {
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: transform 0.15s ease, filter 0.15s ease, background 0.2s ease;
+  transition: transform 0.15s ease, filter 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
+  filter: brightness(1.06);
 }
 
 .btn:active {
@@ -593,25 +669,27 @@ input[aria-invalid="true"] {
 }
 
 .btn-primary {
-  color: #08101f;
-  background: linear-gradient(135deg, var(--accent), #7fe2d8);
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: var(--glow-pink);
 }
 
 .btn-ghost {
   color: var(--text-soft);
   border-color: var(--border-strong);
-  background: rgba(6, 12, 26, 0.45);
+  background: rgba(9, 5, 28, 0.5);
 }
 
 .btn-ghost:hover {
   color: var(--text);
   border-color: var(--primary);
+  background: rgba(139, 92, 246, 0.18);
 }
 
 .btn-danger {
-  color: #ffd6dd;
-  border-color: rgba(255, 107, 129, 0.4);
-  background: rgba(255, 107, 129, 0.14);
+  color: #ffe0e5;
+  border-color: rgba(251, 113, 133, 0.45);
+  background: rgba(251, 113, 133, 0.16);
 }
 
 .btn-icon {
@@ -620,14 +698,15 @@ input[aria-invalid="true"] {
   color: var(--text-soft);
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(6, 12, 26, 0.4);
+  background: rgba(9, 5, 28, 0.45);
   cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 
 .btn-icon:hover {
-  color: var(--text);
+  color: #fff;
   border-color: var(--primary);
+  background: rgba(139, 92, 246, 0.28);
 }
 
 /* ---------- 9. Jadwal mingguan ---------- */
@@ -664,7 +743,7 @@ input[aria-invalid="true"] {
   color: var(--text-dim);
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(6, 12, 26, 0.4);
+  background: rgba(9, 5, 28, 0.45);
   cursor: pointer;
   transition: all 0.18s ease;
 }
@@ -672,12 +751,14 @@ input[aria-invalid="true"] {
 .day-filter button:hover {
   color: var(--text);
   border-color: var(--border-strong);
+  background: rgba(139, 92, 246, 0.16);
 }
 
 .day-filter button[aria-pressed="true"] {
-  color: #08101f;
+  color: #fff;
   border-color: transparent;
   background: linear-gradient(135deg, var(--primary), var(--accent));
+  box-shadow: var(--glow-violet);
 }
 
 .schedule-grid {
@@ -687,19 +768,31 @@ input[aria-invalid="true"] {
   align-items: start;
 }
 
+/* Kode warna per hari: bagian ini membuat grid mingguan lebih mudah dibaca. */
 .day-column {
+  --day-color: var(--primary);
+  --day-rgb: 139, 92, 246;
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: rgba(6, 12, 26, 0.34);
+  background: rgba(9, 5, 28, 0.42);
 }
 
+.day--senin { --day-color: #60a5fa; --day-rgb: 96, 165, 250; }
+.day--selasa { --day-color: #34d399; --day-rgb: 52, 211, 153; }
+.day--rabu { --day-color: #a78bfa; --day-rgb: 167, 139, 250; }
+.day--kamis { --day-color: #f472b6; --day-rgb: 244, 114, 182; }
+.day--jumat { --day-color: #fbbf24; --day-rgb: 251, 191, 36; }
+.day--sabtu { --day-color: #22d3ee; --day-rgb: 34, 211, 238; }
+
 .day-column.is-today {
-  border-color: rgba(53, 214, 200, 0.55);
-  background: rgba(53, 214, 200, 0.07);
+  border-color: var(--day-color);
+  background: rgba(9, 5, 28, 0.42);
+  background: linear-gradient(180deg, rgba(var(--day-rgb), 0.18), rgba(9, 5, 28, 0.42) 62%);
+  box-shadow: 0 0 0 1px rgba(var(--day-rgb), 0.55), var(--shadow-soft);
 }
 
 .day-column-head {
@@ -717,6 +810,17 @@ input[aria-invalid="true"] {
   color: var(--text-soft);
 }
 
+.day-column-head h3::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--day-color);
+  box-shadow: 0 0 12px var(--day-color);
+}
+
 .day-column-head span {
   font-size: 0.72rem;
   color: var(--text-dim);
@@ -725,20 +829,22 @@ input[aria-invalid="true"] {
 .course-card {
   padding: 12px 13px;
   border: 1px solid var(--border);
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid var(--day-color);
   border-radius: var(--radius-sm);
   background: var(--card-solid);
   box-shadow: var(--shadow-soft);
-  transition: transform 0.18s ease, border-color 0.18s ease;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 .course-card:hover {
   transform: translateY(-2px);
   border-color: var(--border-strong);
+  box-shadow: 0 16px 30px -20px rgba(var(--day-rgb), 0.95);
 }
 
 .course-card.is-exam {
   border-left-color: var(--warning);
+  background: linear-gradient(120deg, rgba(251, 191, 36, 0.12), var(--card-solid) 70%);
 }
 
 .course-card.is-past {
@@ -746,7 +852,11 @@ input[aria-invalid="true"] {
 }
 
 .course-card.is-attended {
-  border-left-color: var(--success);
+  background: linear-gradient(120deg, rgba(52, 211, 153, 0.14), var(--card-solid) 72%);
+}
+
+.course-card.is-next {
+  box-shadow: 0 0 0 1px var(--day-color), 0 16px 32px -22px rgba(var(--day-rgb), 0.95);
 }
 
 .course-card-head {
@@ -765,20 +875,24 @@ input[aria-invalid="true"] {
   font-family: var(--mono);
   font-size: 0.68rem;
   border-radius: 999px;
-  background: rgba(109, 139, 255, 0.18);
-  color: #c3d0ff;
+  color: #e4dbff;
+  background: rgba(139, 92, 246, 0.3);
   white-space: nowrap;
 }
 
 .course-card.is-exam .course-badge {
-  background: rgba(255, 179, 71, 0.18);
-  color: #ffd9a1;
+  color: #ffe6b8;
+  background: rgba(251, 191, 36, 0.26);
 }
 
 .course-meta {
   margin-top: 5px;
   font-size: 0.78rem;
   color: var(--text-dim);
+}
+
+.course-meta.course-lecturer {
+  color: var(--text-soft);
 }
 
 .course-card-foot {
@@ -802,8 +916,17 @@ input[aria-invalid="true"] {
 .attend-box {
   width: 15px;
   height: 15px;
-  accent-color: var(--accent);
+  accent-color: var(--primary);
   cursor: pointer;
+}
+
+.course-card.is-attended .attend {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.course-card.is-attended .attend-box {
+  accent-color: var(--success);
 }
 
 .course-actions {
@@ -818,7 +941,7 @@ input[aria-invalid="true"] {
   color: var(--text-dim);
   border: 1px dashed var(--border-strong);
   border-radius: var(--radius);
-  background: rgba(6, 12, 26, 0.3);
+  background: rgba(9, 5, 28, 0.35);
 }
 
 /* ---------- 10. Toast & footer ---------- */
@@ -831,20 +954,22 @@ input[aria-invalid="true"] {
   padding: 13px 18px;
   font-size: 0.85rem;
   font-weight: 600;
-  border: 1px solid var(--border-strong);
-  border-left: 4px solid var(--accent);
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  border-left: 4px solid var(--primary);
   border-radius: var(--radius-sm);
-  background: #101a30;
-  box-shadow: var(--shadow);
+  background: #191046;
+  box-shadow: var(--glow-violet);
   animation: toast-in 0.28s ease;
 }
 
 .toast.is-error {
   border-left-color: var(--danger);
+  box-shadow: 0 16px 34px -18px rgba(251, 113, 133, 0.85);
 }
 
 .toast.is-warning {
   border-left-color: var(--warning);
+  box-shadow: 0 16px 34px -18px rgba(251, 191, 36, 0.85);
 }
 
 @keyframes toast-in {

@@ -641,7 +641,7 @@ class DashboardApp {
     daysToShow.forEach((day) => {
       const coursesOfDay = filtered.filter((course) => course.day === day);
       const column = document.createElement('section');
-      column.className = `day-column${day === today ? ' is-today' : ''}`;
+      column.className = `day-column day--${day.toLowerCase()}${day === today ? ' is-today' : ''}`;
 
       const heading = document.createElement('header');
       heading.className = 'day-column-head';

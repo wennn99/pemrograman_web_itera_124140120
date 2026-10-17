@@ -35,6 +35,7 @@ Dibuat dengan **HTML5, CSS3, dan JavaScript Vanilla (ES6+)** tanpa framework, ta
 - [x] Kartu **Kelas Berikutnya** dengan countdown *live* (hari/jam/menit/detik, diperbarui tiap detik)
 - [x] Status otomatis: **"sedang berlangsung"** saat kelas sedang berjalan, "Hari ini", atau "Besok"
 - [x] Grid jadwal mingguan Senin–Sabtu, kolom **hari ini** otomatis di-highlight
+- [x] **Kode warna per hari**: setiap hari punya warna sendiri (titik hari, garis tepi kartu, dan sorotan kolom "hari ini") agar jadwal cepat dikenali
 - [x] Filter per hari + pencarian *live* berdasarkan mata kuliah/dosen/ruang
 - [x] Ringkasan: total agenda, total SKS, kelas hari ini, dan jumlah agenda ujian
 - [x] Widget **cuaca Kampus ITERA** + prakiraan 7 hari + saran "bawa payung / aman"
@@ -76,7 +77,7 @@ Dibuat dengan **HTML5, CSS3, dan JavaScript Vanilla (ES6+)** tanpa framework, ta
 YowenDaniel_124140120_pertemuan2/
 │
 ├── index.html                     ← struktur halaman (semantic HTML5 + <template>)
-├── style.css                      ← desain UI/UX (CSS variables, grid, dark mode)
+├── style.css                      ← desain UI/UX (CSS variables, tema warna, grid responsif)
 ├── script.js                      ← seluruh logika aplikasi (OOP + ES6+ + localStorage + fetch)
 ├── README.md                      ← dokumentasi (file ini)
 │
@@ -256,7 +257,7 @@ Semua teks dari pengguna disanitasi dengan `escapeHtml()` (`script.js:76`) sebel
 | Fungsionalitas & interaktivitas aplikasi | 30% | CRUD lengkap (tambah/edit/hapus/tandai hadir), filter hari, pencarian, countdown *live*, deteksi bentrok, widget cuaca, kutipan, toast, ringkasan statistik |
 | Implementasi fitur ES6+ | 25% | 28 poin ES6+ pada tabel di atas: class + inheritance, getter/static, private field, destructuring, rest/spread, template literal, `Map`, `?.`/`??`, `async/await`, `Promise.allSettled`, `Intl`, dsb. |
 | Penggunaan localStorage & pengelolaan data | 20% | Dua key (`kelasKu.schedule.v1`, `kelasKu.meta.v1`), `JSON.stringify/parse`, *factory* `fromJSON()` untuk memulihkan tipe kelas, cache API ber-TTL, fallback offline |
-| Desain UI dan UX | 15% | Dashboard gelap modern (CSS variables), kartu-kartu informatif, kolom "hari ini" di-highlight, countdown besar, ikon cuaca, toast, responsif sampai 390px, `prefers-reduced-motion` |
+| Desain UI dan UX | 15% | Tema **"Violet Sunset"** (ungu → pink → cyan) berbasis CSS variables, kode warna per hari, kartu informatif, kolom "hari ini" menyala, countdown besar bergradasi, ikon cuaca, toast notifikasi, responsif sampai 390px, `prefers-reduced-motion` |
 | Dokumentasi dan kerapian kode | 10% | README ini + `modul/README.md`, kode berkomentar & terbagi 5 bagian bernomor, penamaan konsisten, HTML/CSS/JS terpisah |
 
 ---
@@ -292,3 +293,4 @@ Pengujian dijalankan otomatis memakai Chrome *headless* (termasuk simulasi lebar
 - **Zona waktu** dihitung dengan `Intl.DateTimeFormat` bertema `Asia/Jakarta`, jadi jam, tanggal, countdown, dan penanda "hari ini" tetap benar meskipun jam perangkat pengguna bukan WIB.
 - **Latitude/longitude Kampus ITERA** (−5.36, 105.31) disimpan di `CONFIG.campus` sehingga bisa diganti ke lokasi lain dengan satu baris perubahan.
 - Ikon memakai *emoji* dan simbol Unicode sederhana agar tidak perlu aset gambar tambahan.
+- **Tema warna terpusat** di `style.css` bagian 1: seluruh warna berasal dari CSS variables (`--primary`, `--secondary`, `--accent`, `--bg`, dst.), sehingga ganti tema cukup mengubah satu blok. Variabel `--day-color` / `--day-rgb` mengatur warna tiap hari pada grid jadwal.

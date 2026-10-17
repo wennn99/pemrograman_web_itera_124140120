@@ -23,6 +23,6 @@ Untuk tugas **KelasKu — Dashboard Jadwal Kuliah & Cuaca Kampus ITERA**, seluru
 | Pengelolaan data & localStorage | `save()` / `loadFromStorage()` dengan `JSON.stringify()` + `JSON.parse()`, key `kelasKu.schedule.v1`; cache API dengan key `kelasKu.meta.v1` | `script.js` baris 280, 297, 786, 794 |
 | Validasi input form | `validateForm()` mengecek nama, hari, jam mulai/selesai, durasi, dan SKS, lalu menampilkan pesan error merah di bawah field | `script.js` baris 425–454 |
 | Manipulasi DOM modern | `<template>` + `cloneNode()`, `DocumentFragment`, `replaceChildren()`, event delegation `closest()` | `index.html` (template kartu) dan `script.js` baris 610, 633–671, 912–936 |
-| Desain responsif | Grid `auto-fit` + dua media query (900px & 640px) + dukungan `prefers-reduced-motion` | `style.css` baris 211, 690, 871, 882, 911 |
+| Desain responsif | Grid `auto-fit` + dua media query (900px & 640px) + dukungan `prefers-reduced-motion` | `style.css` baris 243, 772, 996, 1007, 1036 |
 
 Dokumentasi lengkap (deskripsi fitur, screenshot, daftar 28 fitur ES6+ beserta baris kodenya, dan hasil pengujian) ada di `README.md` pada folder induk pertemuan ini.
