@@ -514,7 +514,7 @@ class DashboardApp {
     els.cdHours.textContent = String(hours).padStart(2, '0');
     els.cdMinutes.textContent = String(minutes).padStart(2, '0');
     els.cdSeconds.textContent = String(seconds).padStart(2, '0');
-    els.countdown.querySelector('div:last-child small').textContent = ongoing ? 'detik (sisa)' : 'detik';
+    els.countdown.lastElementChild.querySelector('small').textContent = ongoing ? 'detik (sisa)' : 'detik';
   }
 
   /* ---------- 4i. Render: cuaca (Open-Meteo) ---------- */
