@@ -768,7 +768,7 @@ input[aria-invalid="true"] {
   align-items: start;
 }
 
-/* Kode warna per hari: gradasi biru → teal → mint sepanjang minggu. */
+/* Kode warna per hari: tiap hari dibedakan jelas (biru, hijau, ungu, pink, oranye, cyan). */
 .day-column {
   --day-color: var(--primary);
   --day-rgb: 56, 189, 248;
@@ -781,12 +781,12 @@ input[aria-invalid="true"] {
   background: rgba(3, 20, 30, 0.42);
 }
 
-.day--senin { --day-color: #60a5fa; --day-rgb: 96, 165, 250; }
-.day--selasa { --day-color: #38bdf8; --day-rgb: 56, 189, 248; }
-.day--rabu { --day-color: #22d3ee; --day-rgb: 34, 211, 238; }
-.day--kamis { --day-color: #2dd4bf; --day-rgb: 45, 212, 191; }
-.day--jumat { --day-color: #34d399; --day-rgb: 52, 211, 153; }
-.day--sabtu { --day-color: #6ee7b7; --day-rgb: 110, 231, 183; }
+.day--senin  { --day-color: #60a5fa; --day-rgb: 96, 165, 250; }
+.day--selasa { --day-color: #34d399; --day-rgb: 52, 211, 153; }
+.day--rabu   { --day-color: #a78bfa; --day-rgb: 167, 139, 250; }
+.day--kamis  { --day-color: #f472b6; --day-rgb: 244, 114, 182; }
+.day--jumat  { --day-color: #fb923c; --day-rgb: 251, 146, 60; }
+.day--sabtu  { --day-color: #22d3ee; --day-rgb: 34, 211, 238; }
 
 .day-column.is-today {
   border-color: var(--day-color);

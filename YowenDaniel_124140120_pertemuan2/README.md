@@ -35,7 +35,7 @@ Dibuat dengan **HTML5, CSS3, dan JavaScript Vanilla (ES6+)** tanpa framework, ta
 - [x] Kartu **Kelas Berikutnya** dengan countdown *live* (hari/jam/menit/detik, diperbarui tiap detik)
 - [x] Status otomatis: **"sedang berlangsung"** saat kelas sedang berjalan, "Hari ini", atau "Besok"
 - [x] Grid jadwal mingguan Senin–Sabtu, kolom **hari ini** otomatis di-highlight
-- [x] **Kode warna per hari**: setiap hari punya warna sendiri (titik hari, garis tepi kartu, dan sorotan kolom "hari ini") agar jadwal cepat dikenali
+- [x] **Kode warna per hari**: tiap hari punya warna yang berbeda jelas — Senin biru, Selasa hijau, Rabu ungu, Kamis pink, Jumat oranye, Sabtu cyan — dipakai pada titik hari, garis tepi kartu, dan sorotan kolom "hari ini" agar jadwal cepat dikenali
 - [x] Filter per hari + pencarian *live* berdasarkan mata kuliah/dosen/ruang
 - [x] Ringkasan: total agenda, total SKS, kelas hari ini, dan jumlah agenda ujian
 - [x] Widget **cuaca Kampus ITERA** + prakiraan 7 hari + saran "bawa payung / aman"
