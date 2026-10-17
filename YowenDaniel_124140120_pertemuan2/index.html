@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KelasKu — Jadwal Kuliah & Cuaca Kampus ITERA</title>
+  <meta name="description" content="Dashboard jadwal kuliah mahasiswa ITERA lengkap dengan pengingat kelas berikutnya, cuaca kampus, dan kutipan motivasi harian." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ================= HEADER ================= -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-logo" aria-hidden="true">📚</span>
+      <div class="brand-text">
+        <h1>KelasKu</h1>
+        <p>Jadwal Kuliah &amp; Cuaca Kampus ITERA</p>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <figure class="quote" id="quoteCard">
+        <blockquote id="quoteText">Memuat kutipan harian…</blockquote>
+        <figcaption>
+          <span id="quoteAuthor">—</span>
+          <button type="button" id="quoteRefresh" class="btn-icon" title="Ambil kutipan lain" aria-label="Ambil kutipan lain">↻</button>
+        </figcaption>
+      </figure>
+
+      <div class="clock" aria-live="off">
+        <span class="clock-time" id="clockTime">--:--:--</span>
+        <span class="clock-date" id="clockDate">—</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- ============ BARIS ATAS: KELAS BERIKUTNYA / CUACA / RINGKASAN ============ -->
+    <section class="top-grid">
+      <!-- Kelas berikutnya -->
+      <article class="card card-hero" id="nextCard">
+        <header class="card-head">
+          <h2>⏰ Kelas Berikutnya</h2>
+          <span class="pill" id="nextBadge">menghitung…</span>
+        </header>
+        <div class="next-body" id="nextContent">
+          <p class="muted">Memuat jadwal…</p>
+        </div>
+        <div class="countdown" id="countdown" hidden>
+          <div class="countdown-unit"><span id="cdDays">0</span><small>hari</small></div>
+          <div class="countdown-unit"><span id="cdHours">0</span><small>jam</small></div>
+          <div class="countdown-unit"><span id="cdMinutes">0</span><small>menit</small></div>
+          <div class="countdown-unit"><span id="cdSeconds">0</span><small>detik</small></div>
+        </div>
+      </article>
+
+      <!-- Cuaca kampus -->
+      <article class="card card-weather">
+        <header class="card-head">
+          <h2>🌤️ Cuaca Kampus ITERA</h2>
+          <span class="pill pill-soft" id="weatherUpdated">—</span>
+        </header>
+
+        <div class="weather-now" id="weatherNow">
+          <p class="muted">Mengambil data Open-Meteo…</p>
+        </div>
+        <p class="weather-advice" id="weatherAdvice"></p>
+
+        <h3 class="forecast-title">Prakiraan 7 Hari</h3>
+        <ul class="forecast" id="forecast">
+          <li class="muted">Memuat prakiraan…</li>
+        </ul>
+      </article>
+
+      <!-- Ringkasan -->
+      <article class="card card-stats">
+        <header class="card-head">
+          <h2>📊 Ringkasan Minggu Ini</h2>
+        </header>
+        <ul class="stats" id="stats">
+          <li class="muted">Menghitung…</li>
+        </ul>
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span>Progress kehadiran</span>
+            <span id="progressText">0%</span>
+          </div>
+          <div class="progress-bar"><span id="progressBar" style="width:0%"></span></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= FORM ================= -->
+    <section class="card form-card">
+      <header class="card-head">
+        <h2 id="formTitle">➕ Tambah Jadwal Kuliah</h2>
+        <span class="pill pill-soft" id="editingHint" hidden>mode edit</span>
+      </header>
+
+      <form id="courseForm" novalidate autocomplete="off">
+        <div class="field">
+          <label for="title">Mata Kuliah <span class="req">*</span></label>
+          <input type="text" id="title" name="title" placeholder="Contoh: Pemrograman Web" />
+          <small class="error" data-error-for="title"></small>
+        </div>
+
+        <div class="field">
+          <label for="lecturer">Dosen</label>
+          <input type="text" id="lecturer" name="lecturer" placeholder="Contoh: Bpk. Andi" />
+          <small class="error" data-error-for="lecturer"></small>
+        </div>
+
+        <div class="field">
+          <label for="type">Jenis Agenda</label>
+          <select id="type" name="type">
+            <option value="kuliah">Kuliah</option>
+            <option value="ujian">Ujian (UTS/UAS)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="day">Hari <span class="req">*</span></label>
+          <select id="day" name="day">
+            <option>Senin</option>
+            <option>Selasa</option>
+            <option>Rabu</option>
+            <option>Kamis</option>
+            <option>Jumat</option>
+            <option>Sabtu</option>
+          </select>
+          <small class="error" data-error-for="day"></small>
+        </div>
+
+        <div class="field field-time">
+          <label for="start">Jam Mulai <span class="req">*</span></label>
+          <input type="time" id="start" name="start" value="08:00" />
+        </div>
+
+        <div class="field field-time">
+          <label for="end">Jam Selesai <span class="req">*</span></label>
+          <input type="time" id="end" name="end" value="09:40" />
+          <small class="error" data-error-for="end"></small>
+        </div>
+
+        <div class="field">
+          <label for="room">Ruang / Kelas</label>
+          <input type="text" id="room" name="room" placeholder="Contoh: Lab IF-2" />
+        </div>
+
+        <div class="field">
+          <label for="sks">SKS</label>
+          <input type="number" id="sks" name="sks" min="1" max="6" value="2" />
+          <small class="error" data-error-for="sks"></small>
+        </div>
+
+        <fieldset class="field field-material" id="materialField" hidden>
+          <legend>Detail Ujian</legend>
+          <label for="kind">Jenis</label>
+          <select id="kind" name="kind">
+            <option>UTS</option>
+            <option>UAS</option>
+            <option>Kuis</option>
+          </select>
+          <label for="material">Materi</label>
+          <input type="text" id="material" name="material" placeholder="Contoh: HTML, CSS, DOM" />
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Simpan Jadwal</button>
+          <button type="button" class="btn btn-ghost" id="cancelEditBtn" hidden>Batal Edit</button>
+          <button type="button" class="btn btn-ghost" id="demoBtn">Muat Jadwal Contoh</button>
+          <button type="button" class="btn btn-danger" id="clearBtn">Kosongkan Jadwal</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ================= JADWAL MINGGUAN ================= -->
+    <section class="card schedule-card">
+      <header class="schedule-head">
+        <h2>🗓️ Jadwal Mingguan</h2>
+        <div class="schedule-tools">
+          <input type="search" id="searchInput" placeholder="Cari mata kuliah / dosen / ruang…" aria-label="Cari jadwal" />
+          <div class="day-filter" id="dayFilter" role="group" aria-label="Filter hari"></div>
+        </div>
+      </header>
+
+      <div class="schedule-grid" id="scheduleGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>
+        Belum ada jadwal yang cocok. Tambahkan jadwal kuliah di atas, atau klik
+        <strong>Muat Jadwal Contoh</strong>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>
+      <strong>KelasKu</strong> — Praktikum Pemrograman Web ITERA ·
+      Yowen Daniel (124140120) · Kelas PAW RA
+    </p>
+    <p class="muted small">
+      Data jadwal disimpan di localStorage browser Anda ·
+      Cuaca: <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo</a> ·
+      Kutipan: <a href="https://dummyjson.com" target="_blank" rel="noopener">DummyJSON</a>
+    </p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <template id="courseCardTemplate">
+    <article class="course-card">
+      <header class="course-card-head">
+        <h3 class="course-title"></h3>
+        <span class="course-badge"></span>
+      </header>
+      <p class="course-meta course-lecturer"></p>
+      <p class="course-meta course-room"></p>
+      <p class="course-meta course-extra"></p>
+      <footer class="course-card-foot">
+        <label class="attend">
+          <input type="checkbox" class="attend-box" />
+          <span>Hadir</span>
+        </label>
+        <div class="course-actions">
+          <button type="button" class="btn-icon edit-btn" title="Edit jadwal">✎</button>
+          <button type="button" class="btn-icon delete-btn" title="Hapus jadwal" aria-label="Hapus jadwal">✕</button>
+        </div>
+      </footer>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
